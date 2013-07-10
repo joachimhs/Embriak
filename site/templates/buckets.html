@@ -1,0 +1,10 @@
+<div id="pageContent">
+<div class="row-fluid">
+    <div class="span3 leftmenu">
+        BUCKETS:<br />
+        {{#each arrangedContent}}
+            {{#linkTo keys this}}{{id}}{{/linkTo}}<br />
+        {{/each}}</div>
+    {{outlet}}
+    </div>
+</div>

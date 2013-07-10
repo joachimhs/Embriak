@@ -1,0 +1,7 @@
+<div class="span3">
+    KEYS<br/>
+    {{#each keys}}
+        {{#linkTo keys.key this}}{{id}}{{/linkTo}} <br />
+    {{/each}}
+    </div>
+<div class="span4">{{outlet}}</div>
