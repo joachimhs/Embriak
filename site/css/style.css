@@ -13,12 +13,39 @@ html, body {
 }
 
 #pageContent {
-    width: 1200px;
-    height: 600px;
-    margin: auto;
+    margin-top: 75px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .editTextArea {
     width: 95%;
     height: 90%;
+}
+
+#headerArea {
+    text-align: left;
+    font-size: 2.3em;
+    font-weight: 900;
+    padding-top: 15px;
+    background: #E1DBAB;
+    border-bottom: 3px solid #782E54;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #FFF;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 45px;
+    vertical-align: top;
+    z-index: 10;
+}
+
+#headerArea a {
+    color: #fff;
+}
+
+#headerArea a:hover {
+    color: #d8d8d8;
 }

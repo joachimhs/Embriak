@@ -6,12 +6,26 @@ Embriak.KeysRoute = Ember.Route.extend({
 
 Embriak.KeysController = Ember.ObjectController.extend({
     needs: 'keysKey',
-    sortProperties: ['id']
+    sortProperties: ['id'],
+
+    deleteKey: function(key) {
+        var bucket = this.get('content');
+        console.log('deleting key: ' + key.get('id'));
+        var promise = key.deleteRecord();
+        promise.then(function() {
+            console.log(bucket.get('keys').toString());
+            var index = bucket.get('keys').indexOf(key);
+            console.log('deleting item at index: ' + index);
+            bucket.get('keys').removeAt(index);
+        });
+    }
 });
 
 Embriak.KeysLiView = Ember.View.extend({
     tagName: 'li',
-    template: Ember.Handlebars.compile('{{#linkTo keys.key this}}{{keyName}}{{/linkTo}}'),
+    template: Ember.Handlebars.compile('' +
+        '<button class="btn btn-mini btn-danger" style="margin-right: 5px; float: left;" {{action deleteKey this}}>X</button>' +
+        '{{#linkTo keys.key this}}{{keyName}}{{/linkTo}}'),
 
     classNameBindings: 'active',
 

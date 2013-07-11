@@ -26,7 +26,7 @@ Ember.Application.reopen({
 });
 
 var Embriak = Ember.Application.create({
-    templates: ['buckets', 'keys', 'keys/key']
+    templates: ['buckets', 'keys', 'keys/key', 'header']
 });
 
 Embriak.Router.map(function () {

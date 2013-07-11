@@ -1,11 +1,19 @@
+{{render header}}
 <div id="pageContent">
-    <div class="row">
+    <div class="row-fluid">
         <div class="span3 scrollOverflow">
-            <ul class="nav nav-pills nav-stacked fullHeight">
-                {{#each arrangedContent}}
+            {{#if content.isLoaded}}
+                <ul class="nav nav-pills nav-stacked fullHeight">
+                    {{#each arrangedContent}}
                     {{view Embriak.BucketLiView contentBinding="this"}}
-                {{/each}}
-            </ul>
+                    {{/each}}
+                </ul>
+            {{else}}
+                Loading Buckets<br />
+                <div class="progress progress-striped active">
+                    <div class="bar" style="width: 100%;"></div>
+                </div>
+            {{/if}}
         </div>
     {{outlet}}
     </div>

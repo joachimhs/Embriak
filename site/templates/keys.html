@@ -1,9 +1,16 @@
 <div class="span3 scrollOverflow">
-    <ul class="nav nav-pills nav-stacked fullHeight">
-        {{#each keys}}
-            {{view Embriak.KeysLiView contentBinding="this"}}
-        {{/each}}
-    </ul>
+    {{#if content.isLoaded}}
+        <ul class="nav nav-pills nav-stacked fullHeight">
+            {{#each keys}}
+                {{view Embriak.KeysLiView contentBinding="this"}}
+            {{/each}}
+        </ul>
+    {{else}}
+        Loading Keys<br />
+        <div class="progress progress-striped active">
+            <div class="bar" style="width: 100%;"></div>
+        </div>
+    {{/if}}
 </div>
 <div class="span6 scrollOverflow">
     {{outlet}}
