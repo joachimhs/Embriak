@@ -5,5 +5,22 @@ Embriak.KeysKeyRoute = Ember.Route.extend({
 });
 
 Embriak.KeysKeyController = Ember.ObjectController.extend({
-    sortProperties: ['id']
+    sortProperties: ['id'],
+
+    doEdit: function() {
+        var content = this.get('content');
+        content.set('isEditing', true);
+    },
+
+    saveChanges: function() {
+        var content = this.get('content');
+        content.set('isEditing', false);
+        content.save();
+    },
+
+    deleteKey: function() {
+        var content = this.get('content');
+        content.set('isEditing', false);
+        content.deleteRecord();
+    }
 });

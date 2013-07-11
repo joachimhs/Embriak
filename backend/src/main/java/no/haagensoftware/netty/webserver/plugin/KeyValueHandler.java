@@ -12,6 +12,7 @@ import no.akvaplan.postsense.datatypes.BucketListData;
 import no.akvaplan.postsense.datatypes.KeyData;
 import no.akvaplan.postsense.datatypes.KeyListData;
 import no.akvaplan.postsense.datatypes.KeyValue;
+import no.akvaplan.postsense.datatypes.KeyValueObject;
 import no.haagensoftware.netty.webserver.handler.FileServerHandler;
 import no.haagensoftware.riak.RiakEnv;
 import no.haagensoftware.util.UriUtil;
@@ -41,7 +42,16 @@ public class KeyValueHandler extends FileServerHandler {
         	KeyValue keyValue = riakEnv.getRiakBucketDao().getKeyValue(idParts[0], idParts[1]);
         	
         	jsonResponse = "{\"keyValue\": " + new Gson().toJson(keyValue) + "}";
-        }        
+        } else if ((isPost(e) || isPut(e)) && id != null) {
+        	logger.info("Persisiting KeyValue: " + messageContent);
+        	
+        	KeyValueObject keyValueObject = new Gson().fromJson(messageContent, KeyValueObject.class);
+        	String[] idParts = id.split("___");
+        	riakEnv.getRiakBucketDao().persistKeyValue(idParts[0], idParts[1], keyValueObject.getKeyValue());
+        } else if (isDelete(e) && id != null) {
+        	String[] idParts = id.split("___");
+        	riakEnv.getRiakBucketDao().deleteKeyValue(idParts[0], idParts[1]);
+        }
         
         logger.info("jsonResponse: " + jsonResponse);
         writeContentsToBuffer(ctx, jsonResponse, "text/json");

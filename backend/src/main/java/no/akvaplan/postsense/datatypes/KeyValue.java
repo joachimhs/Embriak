@@ -2,6 +2,7 @@ package no.akvaplan.postsense.datatypes;
 
 public class KeyValue {
 	String id;
+	String keyName;
 	String value;
 	
 	public KeyValue() {
@@ -11,6 +12,14 @@ public class KeyValue {
 	public KeyValue(String id, String value) {
 		this.id = id;
 		this.value = value;
+	}
+	
+	public String getKeyName() {
+		return keyName;
+	}
+	
+	public void setKeyName(String keyName) {
+		this.keyName = keyName;
 	}
 	
 	public String getId() {

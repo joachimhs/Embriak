@@ -38,6 +38,7 @@ Embriak.Router.map(function () {
 });
 
 Ember.Handlebars.registerBoundHelper('jsonStringify', function(value) {
-    if (value) return new Handlebars.SafeString("<pre>" + JSON.stringify(JSON.parse(value), undefined, 2) + "</pre>");
+    if (value) return new Handlebars.SafeString("<pre>" + value + "</pre>");
     else return value;
 });
+

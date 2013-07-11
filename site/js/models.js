@@ -17,6 +17,7 @@ Embriak.BucketModel.url = "/json/buckets";
 
 Embriak.KeyModel = Ember.Model.extend({
     id: Ember.attr(),
+    keyName: Ember.attr(),
     value: Ember.attr()
 });
 

@@ -1,7 +1,10 @@
-<div class="span3">
-    KEYS<br/>
-    {{#each keys}}
-        {{#linkTo keys.key this}}{{id}}{{/linkTo}} <br />
-    {{/each}}
-    </div>
-<div class="span4">{{outlet}}</div>
+<div class="span3 scrollOverflow">
+    <ul class="nav nav-pills nav-stacked fullHeight">
+        {{#each keys}}
+            {{view Embriak.KeysLiView contentBinding="this"}}
+        {{/each}}
+    </ul>
+</div>
+<div class="span6 scrollOverflow">
+    {{outlet}}
+</div>
