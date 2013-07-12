@@ -4,7 +4,6 @@ Ember.Application.reopen({
 
         this.loadTemplates();
     },
-
     templates: [],
 
     loadTemplates: function() {

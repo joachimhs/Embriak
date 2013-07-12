@@ -1,26 +1,16 @@
-html, body {
-    height: 100%;
-}
-
-.scrollOverflow {
-    overflow: scroll;
-    overflow-y: scroll;
-}
-
-.fullHeight {
-    height: 600px;
-    max-height: 600px;
-}
-
 #pageContent {
+    margin: 10px;
     margin-top: 75px;
-    margin-left: 10px;
-    margin-right: 10px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
 }
 
 .editTextArea {
     width: 95%;
-    height: 90%;
+    height: 600px;
 }
 
 #headerArea {
@@ -48,4 +38,31 @@ html, body {
 
 #headerArea a:hover {
     color: #d8d8d8;
+}
+
+#column-buckets {
+    position: absolute;
+    left: 10px;
+    width: 23%;
+    top: 10px;
+    bottom: 10px;
+    overflow: scroll;
+}
+
+#column-keys {
+    position: absolute;
+    left: 25%;
+    width: 24%;
+    top: 10px;
+    bottom: 10px;
+    overflow: scroll;
+}
+
+#column-value {
+    position: absolute;
+    left: 50%;
+    width: 49%;
+    top: 10px;
+    bottom: 10px;
+    overflow: scroll;
 }

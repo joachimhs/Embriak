@@ -81,6 +81,11 @@ public class Main {
 			System.setProperty(PropertyConstants.SCRIPTS_CACHE_SECONDS, "0");
 			logger.info(" * Property '" + PropertyConstants.SCRIPTS_CACHE_SECONDS + "' is not specified. Using default: '0' Configure in file config.properties.");
 		}
+		
+		if (System.getProperty(PropertyConstants.RIAK_HOST) == null) {
+			System.setProperty(PropertyConstants.RIAK_HOST, "127.0.0.1");
+			logger.info(" * Property " + PropertyConstants.RIAK_HOST + " is not specified. Using default: 127.0.0.1. Configure in file config.properties.");
+		}
 	}
 	
 	public void run() throws Exception {

@@ -1,17 +1,21 @@
-<div class="span3 scrollOverflow">
-    {{#if content.isLoaded}}
-        <ul class="nav nav-pills nav-stacked fullHeight">
-            {{#each keys}}
-                {{view Embriak.KeysLiView contentBinding="this"}}
-            {{/each}}
-        </ul>
-    {{else}}
-        Loading Keys<br />
-        <div class="progress progress-striped active">
-            <div class="bar" style="width: 100%;"></div>
-        </div>
-    {{/if}}
+<div id="column-keys">
+    <div class="scrollOverflow fullHeight">
+        {{#if controller.isLoaded}}
+            <ul class="nav nav-pills nav-stacked fullHeight">
+                {{#each keys}}
+                    {{view Embriak.KeysLiView contentBinding="this"}}
+                {{/each}}
+            </ul>
+        {{else}}
+            Loading Keys<br />
+            <div class="progress progress-striped active">
+                <div class="bar" style="width: 100%;"></div>
+            </div>
+        {{/if}}
+    </div>
 </div>
-<div class="span6 scrollOverflow">
-    {{outlet}}
+<div id="column-value">
+    <div class="scrollOverflow fullHeight">
+        {{outlet}}
+    </div>
 </div>

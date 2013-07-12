@@ -5,7 +5,7 @@ Embriak.KeysRoute = Ember.Route.extend({
 });
 
 Embriak.KeysController = Ember.ObjectController.extend({
-    needs: 'keysKey',
+    needs: ['keysKey', 'buckets'],
     sortProperties: ['id'],
 
     deleteKey: function(key) {
@@ -18,7 +18,15 @@ Embriak.KeysController = Ember.ObjectController.extend({
             console.log('deleting item at index: ' + index);
             bucket.get('keys').removeAt(index);
         });
-    }
+    },
+
+    /*
+        Loading buckets is an expensive task. We don't want to show keys until buckets have loaded properly
+     */
+    isLoaded: function() {
+        console.log('KeysController isLoaded: ' + (this.get('content.isLoaded') && this.get('controllers.buckets.content.isLoaded')));
+        return this.get('content.isLoaded') && this.get('controllers.buckets.content.isLoaded');
+    }.property('content.isLoaded', 'controllers.buckets.content.isLoaded')
 });
 
 Embriak.KeysLiView = Ember.View.extend({

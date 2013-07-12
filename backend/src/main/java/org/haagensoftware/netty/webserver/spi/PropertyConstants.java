@@ -8,10 +8,9 @@ package org.haagensoftware.netty.webserver.spi;
  * To change this template use File | Settings | File Templates.
  */
 public class PropertyConstants {
-    public static final String NETTY_PORT = "com.akvaplan.netty.port";
-    public static final String WEBAPP_DIR = "com.akvaplan.netty.webappDir";
-    public static final String SCRIPTS_CACHE_SECONDS = "com.akvaplan.netty.scriptsCacheSeconds";
-    public static final String ADMIN_TOKEN = "com.akvaplan.netty.adminToken";
-    public static final String DB_PATH = "com.akvaplan.db.path";
-    public static final String ROOT_USER = "com.akvaplan.rootuser";
+    public static final String NETTY_PORT = "no.haagensoftware.netty.port";
+    public static final String WEBAPP_DIR = "no.haagensoftware.netty.webappDir";
+    public static final String SCRIPTS_CACHE_SECONDS = "no.haagensoftware.netty.scriptsCacheSeconds";
+    public static final String RIAK_HOST = "no.haagensoftware.riak.host";
+    public static final String RIAK_PORT = "no.haagensoftware.riak.port";
 }

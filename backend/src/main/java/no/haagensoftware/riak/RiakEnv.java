@@ -1,5 +1,7 @@
 package no.haagensoftware.riak;
 
+import org.haagensoftware.netty.webserver.spi.PropertyConstants;
+
 import no.haagensoftware.riak.dao.RiakBucketDao;
 
 import com.basho.riak.client.IRiakClient;
@@ -21,8 +23,7 @@ public class RiakEnv {
         PBClusterConfig riakClusterConfig = new PBClusterConfig(20);
         // See above examples for client config options
         PBClientConfig riakClientConfig = PBClientConfig.defaults();
-        //riakClusterConfig.addHosts(riakClientConfig, "192.168.1.102", "192.168.1.104", "192.168.1.105");
-        riakClusterConfig.addHosts(riakClientConfig, "127.0.0.1");
+        riakClusterConfig.addHosts(riakClientConfig, System.getProperty(PropertyConstants.RIAK_HOST));
         riakClient = RiakFactory.newClient(riakClusterConfig);
         
         riakBucketDao = new RiakBucketDao(riakClient);
